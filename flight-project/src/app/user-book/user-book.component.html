@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="d-flex justify-content-between mb-3"></div>
+        <h3>Search Flights</h3>
+    <div class="card">
+    <div class="card-header"> User-Book Flight</div>
+        <div class="card-body">
+            <div>
+            <form  [formGroup]="userbookingFormvalidate"  (ngSubmit)="handleSubmit()" autocomplete="off">
+                <div class="row">
+                        <div class="row mb-4" >
+                                <div class="form-group col-md-4">
+                                    <button class="btn btn-danger" style="top: 10%; left: 60%;"> ONE WAY</button>
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <button class="btn btn-danger" style="top: 10%; left: 60%;"> ROUND TRIP</button>
+                                   
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <button class="btn btn-danger" style="top: 10%; left: 60%;"> MULTI CITY</button>
+                                   
+                                  </div>
+                        </div>
+                        <hr/>
+                    <div class="row mb-4">
+                        <div class="form-group col-md-6">
+                            <label class="labelfont">Depart From</label>
+                            <input type="text" class="form-control"  formControlName="originId" placeholder="origin" >
+                                <span *ngIf="isSubmitted && fc().originId.errors?.required" class="text-danger">Origin Required</span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="labelfont">Going To</label>
+                            <input type="text" class="form-control"  formControlName="destinationId" placeholder="destination" >
+                                <span *ngIf="isSubmitted && fc().destinationId.errors?.required" class="text-danger">Destination Required</span>
+                            
+                        </div>
+
+                    </div>
+                    <hr/>
+                    <div class="row mb-4">
+                        <div class="form-group col-md-6">
+                            <label  class="labelfont" >Depart date</label>
+                            <input type="date" class="form-control" formControlName="fromdateId">
+                            <span *ngIf="isSubmitted && fc().fromdateId.errors?.required" class="text-danger">From Date Required</span>
+                           
+                            
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="labelfont" >Return Date</label>
+                            <input type="date" class="form-control"
+                            formControlName="returndateId" >
+                            <span *ngIf="isSubmitted && fc().returndateId.errors?.required" class="text-danger">Return Date Required</span>
+                           
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group row">
+                        <label class="labelfont col-sm-4">Number of Passengers</label>
+                        <div class="col-md-6">
+                          <input type="number" class="form-control" formControlName="passengersId" id="input3" placeholder="Number of Passenger(s)">
+                          <span *ngIf="isSubmitted && fc().passengersId.errors?.required" class="text-danger">Destination Required</span>
+                        </div>
+                      </div>
+
+                     
+                </div>
+
+                <div class="form-group row">
+                    <div class="mt-3 text-center">
+                      <button type="button" 
+                      [disabled]="userbookingFormvalidate.invalid"
+                       class="btn btn-danger" 
+                      (click)="btnClick();"
+                       >Search Flight -></button>
+                     
+                    </div>
+                  </div>
+            </form>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+

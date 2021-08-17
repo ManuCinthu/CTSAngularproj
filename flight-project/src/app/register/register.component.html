@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div class="card img-fluid" >
+        <!-- <img class="card-img-top" src="../imglogin.jpg" alt="Card image" > -->
+        <div class="card-img-overlay">
+    <div class="card-header"> Register</div>
+        <div class="card-body">
+            <div>
+            <form     autocomplete="off">
+                <!-- <small class="text-danger"> {{msg}}</small> -->
+                <div class="row">
+                   
+                        <div class="form-group">
+                            <label  class="labelfont" >Username</label>
+                            <input type="text" class="form-control" formControlName="usernameId" name="username" >
+                            <!-- <span *ngIf="isSubmitted && fc().usernameId.errors?.required" class="text-danger">Username Required</span> -->
+                           
+                            
+                        </div>
+                        <div class="form-group ">
+                            <label class="labelfont" >Password</label>
+                            <input type="password" class="form-control"
+                            formControlName="passwordId" name="password"  >
+                            <!-- <span *ngIf="isSubmitted && fc().passwordId.errors?.required" class="text-danger">Password Required</span> -->
+                           
+                        </div>
+                   
+                   
+                
+                </div>
+
+                <div class="form-group row">
+                    <div class="mt-3">
+                      <button type="submit" 
+
+                       
+                       class="btn btn-info" 
+                    
+                       >Register</button>
+                     
+                    </div>
+                  </div>
+            </form>
+            <!-- <small class="float-right" (click)="registerationform()">New User? Register Here</small> -->
+        </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+
