@@ -14,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UsermoduleComponent } from './usermodule/usermodule.component';
 import { AdminmoduleComponent } from './adminmodule/adminmodule.component';
+import { ManagescheduleComponent } from './manageschedule/manageschedule.component';
+import { ScheduleresultsComponent } from './scheduleresults/scheduleresults.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { AdminmoduleComponent } from './adminmodule/adminmodule.component';
     RegisterComponent,
     UsermoduleComponent,
     AdminmoduleComponent,
+    ManagescheduleComponent,
+    ScheduleresultsComponent,
     
   ],
   imports: [

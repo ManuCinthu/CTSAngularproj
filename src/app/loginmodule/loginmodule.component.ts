@@ -11,58 +11,57 @@ import { User } from '../user';
   styleUrls: ['./loginmodule.component.css']
 })
 export class LoginmoduleComponent implements OnInit {
-  user = new User();
-  msg='';
-  loginbookingvalidateForm= this.fb.group(
+
+  msg = '';
+  username = '';
+  password = 'login123!'
+
+  loginbookingvalidateForm = this.fb.group(
     {
-      usernameId: ['',[Validators.required]],
-      passwordId:['',[Validators.required]],
-      
+      usernameId: ['', [Validators.required]],
+      passwordId: ['', [Validators.required]],
+
     }
   );
-  isSubmitted: boolean=false;
+  isSubmitted: boolean = false;
 
-  constructor(private fb:FormBuilder, private router:Router,private _service:RegistrationService) { }
-  loginForm=this.fb.group({
-    loginId:['']
+  constructor(private fb: FormBuilder, private router: Router, private _service: RegistrationService) { }
+  loginForm = this.fb.group({
+    loginId: ['']
   });
 
-  handleSubmit(){
+  handleSubmit() {
     this.isSubmitted = true;
   }
 
-  fc(){
+  fc() {
     return this.loginbookingvalidateForm.controls;
   }
 
   registerationform() {
     this.router.navigateByUrl('/register');
-};
+  };
 
 
-homescreen()
-{
-  this.router.navigateByUrl('/home');
-};
 
-adminscreen(){
-  this.router.navigateByUrl('/admin')
-}
+  handleLoginClick() {
+    if (this.username && this.password) {
+      this.authenticateUser(this.username);
+    } else {
+      alert('enter username and password')
+    }
+  }
 
-loginUser(){
-  this._service.loginuser(this.user).subscribe(
-    data => {
-      console.log("response received");
-      this.router.navigateByUrl('/home');
-  
-  },
-    error => {
-      console.log("exception occured");
-     this.msg="Badcredentials";
+  authenticateUser(username: string) {
+    sessionStorage.setItem('user', username);
+    if (username == "admin") {
+      this.router.navigate(['/admin']);
 
     }
-  )
-}
+
+    else this.router.navigate(['/home'])
+  }
+
 
   ngOnInit(): void {
   }

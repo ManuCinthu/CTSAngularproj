@@ -1,26 +1,43 @@
-<div class="bg">
-    <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-    <a class="navbar-brand fw-bold" routerLink="/home">Fly.com</a>
-       <img src="img1.jpg">
-       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul class="navbar-nav ms-auto mb-2 mb-lg">
-                <li class="nav-item">
-                   <a class="nav-link" routerLinkActive="active" routerLink="/home">Book Flight</a>
-               </li>
-               <li class="nav-item">
-                   <a class="nav-link " routerLinkActive="active" routerLink="/managebookingId">Manage Booking</a>
-               </li>
-               <li class="nav-item">
-                   <a class="nav-link " routerLinkActive="active" routerLink="/bookinghistoryId">Booking History</a>
-               </li>
-           </ul>
-       </div>
-   </div>
-</nav>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+<body>
+
+    <div class="bg">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand fw-bold" routerLinkActive="active" routerLink="/admin">Fly.com</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/airlineId']">Manage
+                                Airlines</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/scheduleId']">Manage
+                                Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " routerLinkActive="active" [routerLink]="['/login']">Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
+
+
+
 
 
 
 <router-outlet></router-outlet>
-

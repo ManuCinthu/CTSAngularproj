@@ -10,6 +10,9 @@ import { LoginmoduleComponent } from './loginmodule/loginmodule.component';
 import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 import { UsermoduleComponent } from './usermodule/usermodule.component';
+import { AdminmoduleComponent } from './adminmodule/adminmodule.component';
+import { ManageairlinesComponent } from './manageairlines/manageairlines.component';
+import { ManagescheduleComponent } from './manageschedule/manageschedule.component';
 
 
 // const routes: Routes=[
@@ -24,28 +27,37 @@ import { UsermoduleComponent } from './usermodule/usermodule.component';
 // ];
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginmoduleComponent },
+  
   {
     path: 'home', component: UsermoduleComponent,
     children: [
-      {
-        path: 'searchresultId', component: SearhResultsComponent,
-        children: [
+      {path:'userbookId', component:UserBookComponent},
+      {path: 'searchresultId', component: SearhResultsComponent},
+        // children: [
           {
             path: 'ticketbookingId', component: TicketBookingComponent
-          }
-        ]
-      },
+          },
+        // ]
+      // },
       { path: 'managebookingId', component: ManageBookingComponent },
       { path: 'bookinghistoryId', component: BookingHistoryComponent },
-      {path:'userbookId', component:UserBookComponent},
+     
       {path:'',redirectTo:'userbookId', pathMatch:'full'}
     ]
   },
 
-
-
-  { path: '', redirectTo: 'login', pathMatch: 'full' }
+{
+  path: 'admin', component: AdminmoduleComponent,
+  children:[
+    {path: 'airlineId', component: ManageairlinesComponent},
+    {path:'scheduleId',component:ManagescheduleComponent},
+    {path:'',redirectTo:'airlineId', pathMatch:'full'}
+  ]
+},
+  
+ 
 ]
 
 @NgModule({

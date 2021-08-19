@@ -15,31 +15,31 @@
             </div>
              <div class="card-body">
     
-                <form [formGroup]="searchresultsForm" autocomplete="off">
+                <form  autocomplete="off">
                     <div class="row">
                        
                             <div class="form-group col-md-12">
                               
                                 <table class=" labelfont table table-hover">
                                     <thead>
-                                        <tr  >
+                                        <tr>
                                             <th>Name Of the Flight</th>
-                                            <th>Depart</th>
-                                            <th>Arrive</th>
-                                            <th>Duration</th>
-                                            <th>Price</th>
+                                            <th>Depart from</th>
+                                            <th>Depart To</th>
+                                            <th>Flight Number</th>
+                                            <th></th>
                                             <th></th>
                                            
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let searchlist of flightlist">
-                                            <td>searchlist.flightnames</td>
+                                        <tr>
                                             <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td><button class="btn btn-success">View Fares</button></td>
+                                            <td></td>
+                                            <td><button class="btn btn-success">schedule details</button></td>
     
                                         </tr>
                                     </tbody>
@@ -48,12 +48,10 @@
                     </div>
                     <div class=row>
                    
-                        <div class="col-md-6 ">
-                            <button class="btn btn-danger" (click)="btnClick()">Continue Booking</button>
-                        </div>
-                
+                       
               <div class="col-md-4">
-                <button  class=" btn btn-danger"  (click)="btnClickBack()">Back</button>
+                <button  class=" btn btn-danger"  
+                >Back to home</button>
               </div>
                 
                </div>

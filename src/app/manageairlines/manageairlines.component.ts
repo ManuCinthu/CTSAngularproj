@@ -20,8 +20,8 @@ export class ManageairlinesComponent implements OnInit {
   isSubmitted: boolean=false;
 
   constructor(private fb: FormBuilder,private router : Router) { }
-  userbookingForm=this.fb.group({
-    userbookingId:['']
+  airlineForm=this.fb.group({
+    admin:['']
 
   });
 

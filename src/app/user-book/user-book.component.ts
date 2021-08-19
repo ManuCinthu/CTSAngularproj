@@ -39,7 +39,7 @@ export class UserBookComponent implements OnInit {
 
 
   btnClick() {
-    this.router.navigateByUrl('/searchresultId');
+    this.router.navigateByUrl("/searchresultId");
 };
 
   
