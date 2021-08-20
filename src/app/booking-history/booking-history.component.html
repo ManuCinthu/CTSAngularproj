@@ -11,24 +11,28 @@
             <form [formGroup]="bookinghistoryForm" autocomplete="off">
                 <div class="row">
                         <div class="form-group col-md-12">
-                            <table class=" labelfont table table-hover">
+                            <table class=" labelfont table table-hover" *ngIf="!!bookinghistory.length">
                                 <thead>
                                     <tr>
-                                        <th>Name Of the Flight</th>
+                                        <th>Id</th>
+                                        <th>Name Of Flight</th>
+                                        <th>Flight Number</th>
                                         <th>Date and Time of arrival</th>
                                         <th>Price</th>
                                         <th>Number of passengers</th>
-                                        <th></th>
+                                        
                                         <th></th>
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let listb of bookinghistory">
-                                        <td>listb.flightname</td>
-                                        <td>test</td>
-                                        <td>test</td>
-                                        <td>test</td>
+                                        <td>{{listb.id}}</td>
+                                        <td>{{listb.flightnames}}</td>
+                                        <td>{{listb.flightnumber}}</td>
+                                        <td>{{listb.datetime}}</td>
+                                        <td>{{listb.price}}</td>
+                                        <td>{{listb.passengers}}</td>
                                         <td><button class="btn btn-success">View Details</button>  </td>
                                     </tr>
                                 </tbody>

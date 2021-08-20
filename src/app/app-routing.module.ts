@@ -28,26 +28,22 @@ import { ManagescheduleComponent } from './manageschedule/manageschedule.compone
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginmoduleComponent },
-  
+  { path: 'login', component: LoginmoduleComponent }, 
   {
     path: 'home', component: UsermoduleComponent,
+    
     children: [
       {path:'userbookId', component:UserBookComponent},
-      {path: 'searchresultId', component: SearhResultsComponent},
-        // children: [
-          {
-            path: 'ticketbookingId', component: TicketBookingComponent
-          },
-        // ]
-      // },
+      {
+        path: 'ticketbookingId', component: TicketBookingComponent
+      },
+      {path: 'searchresultId', component: SearhResultsComponent}, 
       { path: 'managebookingId', component: ManageBookingComponent },
       { path: 'bookinghistoryId', component: BookingHistoryComponent },
-     
       {path:'',redirectTo:'userbookId', pathMatch:'full'}
     ]
+    
   },
-
 {
   path: 'admin', component: AdminmoduleComponent,
   children:[

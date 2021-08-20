@@ -20,12 +20,15 @@
                        
                             <div class="form-group col-md-12">
                               
-                                <table class=" labelfont table table-hover">
+                                <table class="labelfont table table-hover" *ngIf="!!flightlist.length">
                                     <thead>
                                         <tr  >
+                                            <th>Id</th>
                                             <th>Name Of the Flight</th>
-                                            <th>Depart</th>
-                                            <th>Arrive</th>
+                                            <th>Fight Number</th>
+                                            <th>Depart From</th>
+                                            <th>Goto</th>
+                                            <th>Depart Date</th>
                                             <th>Duration</th>
                                             <th>Price</th>
                                             <th></th>
@@ -34,11 +37,13 @@
                                     </thead>
                                     <tbody>
                                         <tr *ngFor="let searchlist of flightlist">
-                                            <td>searchlist.flightnames</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{searchlist.id}}</td>
+                                            <td>{{searchlist.flightnames}}</td>
+                                            <td>{{searchlist.flightnumber}}</td>
+                                            <td>{{searchlist.departfrom}}</td>
+                                            <td>{{searchlist.goto}}</td>
+                                            <td>{{searchlist.departdate}}</td>
+                                            <td>{{searchlist.duration}}</td>
                                             <td><button class="btn btn-success">View Fares</button></td>
     
                                         </tr>

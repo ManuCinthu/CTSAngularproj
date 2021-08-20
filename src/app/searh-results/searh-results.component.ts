@@ -31,7 +31,7 @@ export class SearhResultsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.fetchAllFlights;
+     this.fetchAllFlights();
   }
 
 

@@ -6,6 +6,8 @@ export class Listflights {
         public price:number,
         public departfrom:string,
         public goto:string,
-        public passengers:number
+        public passengers:number,
+        public flightnumber:number,
+        public id:number
     ){}
 }

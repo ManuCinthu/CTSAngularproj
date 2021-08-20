@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ListflightsService {
-  url = "http://localhost:3000/list";
+  url = "http://localhost:3000/flightlist";
 
   constructor(private httpClient:HttpClient) { }
   fetchFlights(){
@@ -17,19 +17,19 @@ fetchFlightsById(id:number){
     return this.httpClient.get(this.url+"/"+id);
 }
 
-// createFlight(todo:any){
-//     return this.httpClient.post(this.url, todo);
-// }
+createFlight(todo:any){
+    return this.httpClient.post(this.url, todo);
+}
 
 
-// updateFlight(id:number, todo:any){
-//     return this.httpClient.put(this.url+"/"+id, todo);
-// }
+updateFlight(id:number, todo:any){
+    return this.httpClient.put(this.url+"/"+id, todo);
+}
 
 
-// removeFlight(id:number){
-//     return this.httpClient.delete(this.url+"/"+id);
-// }
+removeFlight(id:number){
+    return this.httpClient.delete(this.url+"/"+id);
+}
 
 
 

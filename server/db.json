@@ -1,82 +1,179 @@
 {
-    "filghtlist":[
-        {
-            "flightnames":"Indigo",
-            "departdate":"12-09-2021",
-            "duration":"20/09/2021",
-            "price":3000,
-            "departfrom":"Bangalore",
-            "goto":"Chennai",
-            "passengers":3
-        },
-        {
-            "flightnames":"FlyHigh",
-            "departdate":"6212C",
-            "duration":"20/09/2021",
-            "price":3000,
-            "departfrom":"Bangalore",
-            "goto":"Chennai",
-            "passengers":3
-        },
-        {
-            "flightnames":"SpiceJet",
-            "departdate":"45212C",
-            "duration":"20/09/2021",
-            "price":2000,
-            "departfrom":"Bangalore",
-            "goto":"Chennai",
-            "passengers":3
-        },
-        {
-            "flightnames":"Kingfisher",
-            "departdate":"8212C",
-            "duration":"20/09/2021",
-            "price":2000,
-            "departfrom":"Bangalore",
-            "goto":"Chennai",
-            "passengers":3
-        }
-    ],
-    "bookinghistory":[
-        {
-            "flightnames":"Indigo",
-            "datetime":"4512C",
-            "price":2000,
-            "passengers":3
-        
-        
-        },
-        {
-            "flightnames":"Indigo",
-            "datetime":"4512C",
-            "price":2000,
-            "passengers":3
-        
-        
-        },
-        {
-            "flightnames":"Indigo",
-            "datetime":"4512C",
-            "price":2000,
-            "passengers":3
-        
-        
-        },
-        {
-            "flightnames":"Indigo",
-            "datetime":"4512C",
-            "price":2000,
-            "passengers":3
-        
-        
-        },
-        {
-            "flightnames":"Indigo",
-            "datetime":"4512C",
-            "price":2000,
-            "passengers":3
-        
-        
-        }
-    ]
+  "flightlist": [
+    {
+      "flightnames": "Indigo",
+      "departdate": "12-09-2021",
+      "duration": "20/09/2021",
+      "price": 3000,
+      "departfrom": "Bangalore",
+      "goto": "Chennai",
+      "passengers": 3,
+      "flightnumber": "8212C",
+      "id": 1
+    },
+    {
+      "flightnames": "FlyHigh",
+      "departdate": "6212C",
+      "duration": "20/09/2021",
+      "price": 3000,
+      "departfrom": "Bangalore",
+      "goto": "Chennai",
+      "passengers": 3,
+      "flightnumber": "8212C",
+      "id": 2
+    },
+    {
+      "flightnames": "SpiceJet",
+      "departdate": "45212C",
+      "duration": "20/09/2021",
+      "price": 2000,
+      "departfrom": "Bangalore",
+      "goto": "Chennai",
+      "passengers": 3,
+      "flightnumber": "8212C",
+      "id": 3
+    },
+    {
+      "flightnames": "Kingfisher",
+      "departdate": "8212C",
+      "duration": "20/09/2021",
+      "price": 2000,
+      "departfrom": "Bangalore",
+      "goto": "Chennai",
+      "passengers": 3,
+      "flightnumber": "8212C",
+      "id": 4
+    }
+  ],
+  "bookinghistory": [
+    {
+      "flightnames": "Indigo",
+      "datetime": "22-09-2021",
+      "price": 2000,
+      "passengers": 3,
+      "flightnumber": "8212C",
+      "id": 1
+    },
+    {
+      "flightnames": "Kingfisher",
+      "datetime": "26-09-2021",
+      "price": 2300,
+      "passengers": 4,
+      "flightnumber": "231V",
+      "id": 2
+    },
+    {
+      "flightnames": "SpiceJet",
+      "datetime": "20-09-2021",
+      "price": 1500,
+      "passengers": 3,
+      "flightnumber": "231V",
+      "id": 3
+    },
+    {
+      "flightnames": "Indigo",
+      "datetime": "27-09-2021",
+      "price": 2550,
+      "passengers": 2,
+      "flightnumber": "6212C",
+      "id": 4
+    },
+    {
+      "flightnames": "FlyHigh",
+      "datetime": "24-09-2021",
+      "price": 2600,
+      "passengers": 3,
+      "flightnumber": "231V",
+      "id": 5
+    }
+  ],
+  "managebooking": [
+    {
+      "flightnames": "Indigo",
+      "datetime": "22-09-2021",
+      "price": 2000,
+      "passengers": 3,
+      "flightnumber": "8212C",
+      "id": 1
+    },
+    {
+      "flightnames": "Kingfisher",
+      "datetime": "26-09-2021",
+      "price": 2300,
+      "passengers": 4,
+      "flightnumber": "231V",
+      "id": 2
+    },
+    {
+      "flightnames": "SpiceJet",
+      "datetime": "20-09-2021",
+      "price": 1500,
+      "passengers": 3,
+      "flightnumber": "231V",
+      "id": 3
+    }
+  ],
+  "manageairlines": [
+    {
+      "airlinename": "Indigo",
+      "contactnumber": "123456789",
+      "contactaddress": "Bangalore",
+      "id": 1
+    },
+    {
+      "airlinename": "Fightjet",
+      "contactnumber": "123456789",
+      "contactaddress": 2500,
+      "id": 2
+    },
+    {
+      "airlinename": "Flyhigh",
+      "contactnumber": "123456789",
+      "contactaddress": 2050,
+      "id": 3
+    },
+    {
+      "airlinename": "Gowith",
+      "contactnumber": "123456789",
+      "contactaddress": 2000,
+      "id": 4
+    }
+  ],
+  "airlinelist": [
+    {
+      "airlinename": "Indigo",
+      "contactnumber": "123456789",
+      "contactaddress": "Bangalore",
+      "flightnumber": "6212C",
+      "id": 1
+    },
+    {
+      "airlinename": "Fightjet",
+      "contactnumber": "123456789",
+      "contactaddress": "Bangalore",
+      "flightnumber": "6212C",
+      "id": 2
+    },
+    {
+      "airlinename": "Flyhigh",
+      "contactnumber": "123456789",
+      "contactaddress": "Bangalore",
+      "flightnumber": "6212C",
+      "id": 3
+    },
+    {
+      "airlinename": "Gowith",
+      "contactnumber": "123456789",
+      "flightnumber": "6212C",
+      "contactaddress": "Bangalore",
+      "id": 4
+    },
+    {
+      "airlinename": "spicejet",
+      "flightnumber": "RTY6",
+      "contactnumber": 12345569,
+      "contactaddress": "Chennai",
+      "id": 5
+    }
+  ]
 }

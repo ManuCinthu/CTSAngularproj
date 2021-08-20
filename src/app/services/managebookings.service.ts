@@ -5,15 +5,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ManagebookingsService {
-  url = "http://localhost:3000/managebookinglist";
+  url = "http://localhost:3000/managebooking";
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  fetchmanagebookings(){
+  fetchmanagebookings() {
     console.log("fetching all fights...")
     return this.httpClient.get(this.url);
-}
-fetchbookingsbyId(id:number){
-    return this.httpClient.get(this.url+"/"+id);
-}
+  }
+  fetchbookingsbyId(id: number) {
+    return this.httpClient.get(this.url + "/" + id);
+  }
+
+  createbookings(todo: any) {
+    return this.httpClient.post(this.url, todo);
+  }
+  updatebookings(id: number, todo: any) {
+    return this.httpClient.put(this.url + "/" + id, todo);
+  }
+  deletebookings(id: number) {
+    return this.httpClient.delete(this.url + "/" + id);
+  }
+
+
 }

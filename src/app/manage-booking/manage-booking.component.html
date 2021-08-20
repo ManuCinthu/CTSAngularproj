@@ -9,28 +9,34 @@
                     
                         <div class="form-group col-md-12">
                            
-                            <table class="labelfont table table-hover">
+                            <table class="labelfont table table-hover" *ngIf="!!managebooking.length">
                                 <thead>
                                     <tr>
-                                        <th>Name Of the Flight</th>
-                                        <th>Date and Time of arrival</th>
+                                        <th>Id</th>
+                                        <th>Name Of Flight</th>
+                                        <th>Flight Number</th>
+                                        <th>Date of arrival</th>
                                         <th>Price</th>
-                                        <th></th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr >
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                    <tr *ngFor="let listb of managebooking">
+                                        <td>{{listb.id}}</td>
+                                        <td>{{listb.flightnames}}</td>
+                                        <td>{{listb.flightnumber}}</td>
+                                        <td>{{listb.datetime}}</td>
+                                        <td>{{listb.price}}</td>
                                         <td>
                                             <button class="btn btn-primary">View</button>  
                                         </td>
                                         <td><button class="btn btn-success">Download</button>  </td>
-                                        <td><button class="btn btn-danger">Cancel</button>  </td>
+                                        <td><button class="btn btn-danger"
+                                            (click)="cancelbookings(listb.id)">Cancel</button>  </td>
+
+                                       
 
                                     </tr>
                                 </tbody>

@@ -1,84 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <title>Document</title> -->
-</head>
-<body>
+
   <div class="container">
     <div class="d-flex justify-content-between mb-3"></div>
-        <h3>Manage Airlines</h3>
+    
     <div class="card">
-    <div class="card-header"> Add Airlines</div>
-        <div class="card-body">
-            <div>
-            <form  [formGroup]="airlineFormvalidate"  (ngSubmit)="handleSubmit()" autocomplete="off">
-                <div class="row">
-                    <div class="row mb-4">
-                    <div class="form-group col-md-6">
-                        <label class="labelfont">Airline Name</label>
-                       
-                          <input type="text" class="form-control" formControlName="airlinename" id="input3" placeholder="Number of Passenger(s)">
-                          <span *ngIf="isSubmitted && fc().airlinename.errors?.required" class="text-danger">AirLine Name Required</span>
-                        
-                      </div>
-                    </div>
-                      <hr/>
-                      <div class="row mb-4">
-                      <div class="form-group col-md-6">
-                        <label class="labelfont" for="customFile">Upload Log</label>
-                        
-                            <input type="file" class="form-control" formControlName="logoname" id="customFile" />
-                          <span *ngIf="isSubmitted && fc().logoname.errors?.required" class="text-danger">Logo Required</span> 
-                      </div>
-                      </div>
-                      <hr/>
-                      <div class="row mb-4">
-                      <div class="form-group col-md-6">
-                        <label class="labelfont">Contact Number</label>
-                       
-                          <input type="number" class="form-control" formControlName="contactnumber" id="input3" placeholder="Number of Passenger(s)">
-                          <span *ngIf="isSubmitted && fc().contactnumber.errors?.required" class="text-danger">Contact Nunber Required</span>
-                       
-                      </div>
-                      </div>
-                      <hr/>
-                      <div class="row mb-4">
-                      <div class="form-group col-md-6">
-                        <label class="labelfont">Contact Address</label>
-                       
-                          <input type="text-field" class="form-control" formControlName="address" id="input3" placeholder="Number of Passenger(s)">
-                          <span *ngIf="isSubmitted && fc().address.errors?.required" class="text-danger">Address Required</span>
-                        
-                      </div>
-                      </div>
-                      <hr/>  
-                </div>
+      <div class="card-header"> Manage Airlines 
+        <button  (click)="open(mymodal)" class="btn btn-lg btn-outline-primary">Add Airline</button>
+      </div>
+      <div class="card-body">
+        <div>
+          <form [formGroup]="manageairlineFormvalidate" autocomplete="off">
+            <div class="row">
 
-                <div class="form-group row">
-                    <div class="mt-3 text-center">
-                      <button type="button" 
-                      [disabled]="airlineFormvalidate.invalid"
-                       class="btn btn-danger" 
-                      (click)="btnClick();"
-                       >Add New AirLine</button>
-                     
-                    </div>
-                  </div>
-            </form>
+              <div class="form-group col-md-12">
+
+                <table class="labelfont table table-hover" *ngIf="!!airlinelist.length">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Name Of Airline</th>
+                      <th>Flight Number</th>
+                      <th>Contact number</th>
+                      <th>Contact address</th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let listb of airlinelist">
+                      <td>{{listb.id}}</td>
+                      <td>{{listb.airlinename}}</td>
+                      <td>{{listb.flightnumber}}</td>
+
+                      <td>{{listb.contactnumber}}</td>
+                      <td>{{listb.contactaddress}}</td>
+                  
+                      <td><button class="btn btn-danger"
+                        (click)="deleteairlines(listb.id)">Delete</button>  </td>
+                        
+                        <td><button class="btn btn-primary"
+                          (click)="open(editmodal)">Edit</button>  </td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </form>
         </div>
 
-        </div>
+      </div>
     </div>
-</div>
-<router-outlet></router-outlet>
-</body>
-</html>
+  </div>
 
 
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Airline</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="airlineFormvalidate"  (ngSubmit)="handleSubmit()" autocomplete="off">
+        <div class="row">
+          <div class="row mb-4">
+          <div class="form-group col-md-6">
+              <label class="labelfont">Airline Name</label>
+             
+                <input type="text" class="form-control" formControlName="airlinename" id="input3" placeholder="Airline Name">
+                <span *ngIf="isSubmitted && fc().airlinename.errors?.required" class="text-danger">AirLine Name Required</span>
+              
+            </div>
+          </div>
+            <hr/>
+            <div class="row mb-4">
+            <div class="form-group col-md-6">
+              <label class="labelfont" for="customFile">Upload Log</label>
+              
+                  <input type="file" class="form-control" id="customFile" />
+                <!-- <span *ngIf="isSubmitted && fc().logoname.errors?.required" class="text-danger">Logo Required</span>  -->
+            </div>
+            </div>
+            <hr/>
+            <div class="row mb-4">
+            <div class="form-group col-md-6">
+              <label class="labelfont">Contact Number</label>
+             
+                <input type="number" class="form-control" formControlName="contactnumber" id="input3" placeholder="Contact Number(s)">
+                <span *ngIf="isSubmitted && fc().contactnumber.errors?.required" class="text-danger">Contact Number Required</span>
+             
+            </div>
+            </div>
+            <hr/>
+            <div class="row mb-4">
+              <div class="form-group col-md-6">
+                <label class="labelfont">Flight Number</label>
+               
+                  <input type="text" class="form-control" formControlName="flightnumber" id="input3" placeholder="Flight Number(s)">
+                  <span *ngIf="isSubmitted && fc().flightnumber.errors?.required" class="text-danger">Flight Number Required</span>
+               
+              </div>
+              </div>
+            <div class="row mb-4">
+            <div class="form-group col-md-6">
+              <label class="labelfont">Contact Address</label>
+              <textarea class="form-control" formControlName="contactaddress" rows="3" placeholder="Contact Address"></textarea>
+                <!-- <input type="text-field" class="form-control" formControlName="address" id="input3" placeholder="Contact Address"> -->
+                <span *ngIf="isSubmitted && fc().contactaddress.errors?.required" class="text-danger">Address Required</span>
+              
+            </div>
+            </div>
+            <hr/>  
+      </div>
+
+      <!-- <div class="form-group row">
+          <div class="mt-3 text-center">
+            <button type="button" 
+            [disabled]="airlineFormvalidate.invalid"
+             class="btn btn-danger" 
+            (click)="btnClick();"
+             >Add New AirLine</button>
+           
+          </div>
+        </div> -->
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="addEvent(airlineFormvalidate.value)">Save</button>
+    </div>
+  </ng-template>
 
 
+    <ng-template #editmodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Edit Airline</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="airlineFormvalidate"  (ngSubmit)="handleSubmit()" autocomplete="off">
+        <div class="row">
+          <div class="row mb-4">
+          <div class="form-group col-md-6">
+              <label class="labelfont">Airline Name</label>
+             
+                <input type="text" class="form-control"  name="airlinename" placeholder="Airline Name">
+                <span *ngIf="isSubmitted && fc().airlinename.errors?.required" class="text-danger">AirLine Name Required</span>
+              
+            </div>
+          </div>
+            <hr/>
+            <div class="row mb-4">
+            <div class="form-group col-md-6">
+              <label class="labelfont" for="customFile">Upload Log</label>
+              
+                  <input type="file" class="form-control" id="customFile" />
+                <!-- <span *ngIf="isSubmitted && fc().logoname.errors?.required" class="text-danger">Logo Required</span>  -->
+            </div>
+            </div>
+            <hr/>
+            <div class="row mb-4">
+            <div class="form-group col-md-6">
+              <label class="labelfont">Contact Number</label>
+             
+                <input type="number" class="form-control" formControlName="contactnumber" id="input3" placeholder="Contact Number(s)">
+                <span *ngIf="isSubmitted && fc().contactnumber.errors?.required" class="text-danger">Contact Number Required</span>
+             
+            </div>
+            </div>
+            <hr/>
+            <div class="row mb-4">
+              <div class="form-group col-md-6">
+                <label class="labelfont">Flight Number</label>
+               
+                  <input type="text" class="form-control" formControlName="flightnumber" id="input3" placeholder="Flight Number(s)">
+                  <span *ngIf="isSubmitted && fc().flightnumber.errors?.required" class="text-danger">Flight Number Required</span>
+               
+              </div>
+              </div>
+            <div class="row mb-4">
+            <div class="form-group col-md-6">
+              <label class="labelfont">Contact Address</label>
+              <textarea class="form-control" formControlName="contactaddress" rows="3" placeholder="Contact Address"></textarea>
+                <!-- <input type="text-field" class="form-control" formControlName="address" id="input3" placeholder="Contact Address"> -->
+                <span *ngIf="isSubmitted && fc().contactaddress.errors?.required" class="text-danger">Address Required</span>
+              
+            </div>
+            </div>
+            <hr/>  
+      </div>
 
+      <!-- <div class="form-group row">
+          <div class="mt-3 text-center">
+            <button type="button" 
+            [disabled]="airlineFormvalidate.invalid"
+             class="btn btn-danger" 
+            (click)="btnClick();"
+             >Add New AirLine</button>
+           
+          </div>
+        </div> -->
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="editEvent(id,airlineFormvalidate.value)">Save</button>
+    </div>
+  </ng-template>
 

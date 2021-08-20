@@ -8,9 +8,9 @@
             <form  [formGroup]="userbookingFormvalidate"  (ngSubmit)="handleSubmit()" autocomplete="off">
                 <div class="row">
                         <div class="row mb-4" >
-                                <div class="form-group col-md-4">
+                                <!-- <div class="form-group col-md-4">
                                     <button class="btn btn-danger" style="top: 10%; left: 60%;"> ONE WAY</button>
-                                  </div>
+                                  </div> -->
                                   <div class="form-group col-md-4">
                                     <button class="btn btn-danger" style="top: 10%; left: 60%;"> ROUND TRIP</button>
                                    
@@ -69,7 +69,7 @@
                       <button type="button" 
                       [disabled]="userbookingFormvalidate.invalid"
                        class="btn btn-danger" 
-                      (click)="btnClick();"
+                      (click)="btnClick()"
                        >Search Flight -></button>
                      
                     </div>

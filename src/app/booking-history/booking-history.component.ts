@@ -19,6 +19,7 @@ export class BookingHistoryComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.fetchAllBookings();
   }
 
   fetchAllBookings(){

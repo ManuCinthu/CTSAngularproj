@@ -16,6 +16,8 @@ import { UsermoduleComponent } from './usermodule/usermodule.component';
 import { AdminmoduleComponent } from './adminmodule/adminmodule.component';
 import { ManagescheduleComponent } from './manageschedule/manageschedule.component';
 import { ScheduleresultsComponent } from './scheduleresults/scheduleresults.component';
+import { AddairlinesComponent } from './addairlines/addairlines.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { ScheduleresultsComponent } from './scheduleresults/scheduleresults.comp
     AdminmoduleComponent,
     ManagescheduleComponent,
     ScheduleresultsComponent,
+    AddairlinesComponent,
     
   ],
   imports: [
@@ -40,7 +43,8 @@ import { ScheduleresultsComponent } from './scheduleresults/scheduleresults.comp
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
